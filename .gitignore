@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+".ipynb_checkpoints/" 
+"*.ipynb" 
+"dist.zip" 
+"FETCH_HEAD" 
+"git/" 
