@@ -4,13 +4,22 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #213547;
+  background-color: transparent;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background-image: url('/1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
 }
 
 a {
@@ -24,10 +33,27 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url('/1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: transparent;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 0;
+  pointer-events: none;
 }
 
 h1 {
@@ -64,8 +90,14 @@ button:focus-visible {
 }
 
 /* Site specific layout */
-body { background: linear-gradient(180deg,#fff7f7,#fff); min-height:100vh }
-html, body, #app { height: 100% }
+/* body 背景已在上面设置，这里不再覆盖 */
+html, body {
+  height: auto;
+  min-height: 100%;
+}
+#app {
+  min-height: 100vh;
+}
 .card { background: linear-gradient(180deg,#fff,#fffaf2); border-radius:8px; box-shadow:0 6px 20px rgba(35,35,35,0.06) }
 .main { padding:1rem 0 }
 .catalog, .cart, .hero { max-width:1100px; margin:0 auto; text-align:left }
@@ -80,7 +112,7 @@ html, body, #app { height: 100% }
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: transparent;
   }
   a:hover {
     color: #747bff;

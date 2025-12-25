@@ -1,18 +1,11 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
 import './style.css'
 import App from './App.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from './components/Home.vue'
 import Catalog from './components/Catalog.vue'
 import Cart from './components/Cart.vue'
 import Contact from './components/Contact.vue'
-
-const routes = [
-  { path: '/', component: Home },
-  { path: '/catalog', component: Catalog },
-  { path: '/cart', component: Cart },
-  { path: '/contact', component: Contact }
-]
 
 // Single Page Apps for GitHub Pages
 // https://github.com/rafgraph/spa-github-pages
@@ -34,8 +27,15 @@ const routes = [
   }
 }(window.location))
 
+const routes = [
+  { path: '/', component: Home },
+  { path: '/catalog', component: Catalog },
+  { path: '/cart', component: Cart },
+  { path: '/contact', component: Contact }
+]
+
 const router = createRouter({
-  history: createWebHistory('/flower/'), // 你的仓库名
+  history: createWebHistory(),
   routes
 })
 

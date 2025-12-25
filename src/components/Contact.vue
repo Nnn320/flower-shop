@@ -1,5 +1,16 @@
 <script setup>
-// Contact component
+import { ref } from 'vue'
+
+const form = ref({
+  name: '',
+  email: '',
+  message: ''
+})
+
+function submitForm() {
+  alert('感谢您的消息！我们会尽快回复。')
+  form.value = { name: '', email: '', message: '' }
+}
 </script>
 
 <template>
@@ -41,25 +52,7 @@
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      form: {
-        name: '',
-        email: '',
-        message: ''
-      }
-    }
-  },
-  methods: {
-    submitForm() {
-      alert('感谢您的消息！我们会尽快回复。')
-      this.form = { name: '', email: '', message: '' }
-    }
-  }
-}
-</script>
+
 
 <style scoped>
 .contact { max-width: 800px; margin: 0 auto; text-align: left }

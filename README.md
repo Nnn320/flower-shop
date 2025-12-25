@@ -12,6 +12,7 @@
 ## 技术栈
 
 - Vue 3 + Vite
+- Vue Router 4
 - CSS3 + Flexbox
 - 本地图片资源
 
@@ -25,6 +26,7 @@ npm run dev
 
 打开 `http://localhost:5173` 查看
 
+
 ## 项目结构
 
 ```
@@ -35,6 +37,12 @@ test/
 │   ├── components/  # Vue组件
 │   ├── App.vue      # 主组件
 │   └── style.css    # 样式
+├── .github/
+│   └── workflows/   # GitHub Actions 工作流
 ├── package.json
 └── README.md
 ```
+
+## 许可证
+
+MIT License

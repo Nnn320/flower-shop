@@ -1,30 +1,13 @@
 {
-  "name": "flower-shop",
-  "version": "1.0.0",
-  "description": "基于 Vue 3 + Vite 的花店网站前端项目",
+  "name": "test",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [
-    "vue",
-    "vite",
-    "flower-shop",
-    "花店",
-    "e-commerce"
-  ],
-  "author": "花匠花店",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Nnn320/flower.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Nnn320/flower/issues"
-  },
-  "homepage": "https://Nnn320.github.io/flower/",
   "dependencies": {
     "vue": "^3.5.24",
     "vue-router": "^4.6.4"

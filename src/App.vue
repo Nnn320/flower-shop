@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
 
 const cart = ref([])
 
@@ -10,16 +10,18 @@ function addToCart(product) {
 function removeFromCart(index) {
   cart.value.splice(index, 1)
 }
+
+// 通过 provide 向子组件提供购物车状态和方法
+provide('cart', cart)
+provide('addToCart', addToCart)
+provide('removeFromCart', removeFromCart)
 </script>
 
 <template>
   <div id="app">
-    <div class="bg-layer" :style="{ backgroundImage: `url(/1.jpg)` }"></div>
     <header class="site-header">
       <div class="brand">
-        <router-link to="/" class="logo-link">
-          <img src="/logo.jpg" alt="logo" class="logo" />
-        </router-link>
+        <img src="/logo.jpg" alt="logo" class="logo" />
         <h1>花匠花店</h1>
       </div>
       <nav class="nav">
@@ -31,7 +33,7 @@ function removeFromCart(index) {
     </header>
 
     <main class="main">
-      <router-view :add-to-cart="addToCart" :cart="cart" :remove-from-cart="removeFromCart" />
+      <router-view />
     </main>
 
     <footer class="site-footer">© 2025 花匠花店 — 温柔的花，温暖的心</footer>
@@ -40,25 +42,13 @@ function removeFromCart(index) {
 
 <style>
 #app {
-  background-image: url('/1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: 100vh;
   width: 100%;
   position: relative;
+  z-index: 1;
+  background-color: transparent;
 }
 
-#app::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.3);
-  z-index: 1;
-}
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -69,12 +59,49 @@ function removeFromCart(index) {
   border-radius: 8px;
   position: relative;
   z-index: 2;
+  margin: 1rem;
 }
-.brand { display:flex; align-items:center; gap:0.75rem }
-.brand h1 { margin:0; font-size:1.4rem; color:#213547 }
-.logo { height:5rem }
-.nav a { margin-left:0.5rem; text-decoration: none; color: inherit; padding: 0.5rem; border-radius: 4px; transition: background 0.3s }
-.nav a:hover, .nav a.router-link-active { background: rgba(255,255,255,0.1) }
-.main { margin-top:1.5rem; position: relative; z-index: 2; }
-.site-footer { margin-top:2rem; text-align:center; color:#888; position: relative; z-index: 2; }
+
+.brand { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.75rem; 
+}
+
+.brand h1 { 
+  margin: 0; 
+  font-size: 1.4rem; 
+  color: #213547; 
+}
+
+.logo { 
+  height: 5rem; 
+}
+
+.nav a { 
+  margin-left: 0.5rem; 
+  text-decoration: none; 
+  color: #213547; 
+  padding: 0.5rem; 
+  border-radius: 4px; 
+  transition: background 0.3s; 
+}
+
+.nav a:hover, .nav a.router-link-active { 
+  background: rgba(255,255,255,0.5); 
+}
+
+.main { 
+  margin: 1.5rem; 
+  position: relative; 
+  z-index: 2; 
+}
+
+.site-footer { 
+  margin: 2rem 1rem 1rem; 
+  text-align: center; 
+  color: #213547; 
+  position: relative; 
+  z-index: 2; 
+}
 </style>
